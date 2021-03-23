@@ -1,0 +1,24 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+        maxSum = 0;
+        maxCurrent = 0;
+        
+        maxNum = max(nums)
+        if maxNum < 0:
+            return maxNum
+            
+        for num in nums:
+            if maxCurrent + num > 0:
+                maxCurrent = num + maxCurrent
+                if maxCurrent > maxSum:
+                    maxSum = maxCurrent
+            elif maxCurrent + num <= 0:
+                maxCurrent = 0
+        return maxSum
+        
+        
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
