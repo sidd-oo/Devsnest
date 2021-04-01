@@ -1,0 +1,10 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        maxProfit = 0
+        min_so_far = 10000
+        for price in prices:
+            if price < min_so_far:
+                min_so_far = price
+            if maxProfit < price - min_so_far:
+                maxProfit = price - min_so_far
+        return maxProfit
